@@ -24,53 +24,61 @@
 ### 环境要求
 - Python 3.8+
 - pip 20+
-
 ### 快速启动
+```bash
 # 克隆仓库
 git clone https://github.com/yujinandyanhaoyang/-.git
+
+# 进入项目目录
+cd -
 
 # 安装依赖
 pip install -r requirements.txt
 
-# 数据库迁移
+# 应用数据库迁移
 python manage.py migrate
 
-# 创建管理员用户
+# 创建管理员用户（按提示输入信息）
 python manage.py createsuperuser
 
 # 启动开发服务器
 python manage.py runserver
 
+
 ## 项目结构
+```bash
 研友集/
-├── Login/                # 用户认证核心模块
-│   ├── api/              # API接口实现
-│   │   ├── group.py      # 学习小组相关API
-│   │   ├── login.py      # 用户认证相关API
-│   │   ├── resource.py   # 资源管理相关API
-│   │   └── task.py       # 任务管理相关API
-│   ├── migrations/       # 数据库迁移文件（已包含用户模型变更）
-│   ├── models.py         # 数据模型（用户/学习小组/资源/任务）
-│   ├── urls.py           # 应用路由配置
-│   └── admin.py          # 管理后台配置（待完善）
-├── commo/                # 公共工具模块
-│   ├── validate_request.py  # 请求验证装饰器
-│   └── parse_json_request.py # JSON解析工具
-├── 研友集/               # 项目主配置目录
-│   ├── settings.py       # 项目设置（含自定义用户模型）
-│   ├── urls.py           # 主路由配置
-│   ├── wsgi.py           # WSGI入口
-│   └── asgi.py           # ASGI入口
-├── datafactor/           # 数据处理相关（需补充内容）
-│   └── resources/            # 上传文件存储目录（自动生成）
-├── templates/            # HTML模板目录
-├── db.sqlite3            # SQLite数据库文件（自动生成）
-├── manage.py             # Django管理脚本
-└── requirements.txt      # Python依赖列表
+├── Login/                  # 用户认证核心模块
+│   ├── api/                # API接口实现
+│   │   ├── group.py       # 学习小组API
+│   │   ├── login.py       # 用户认证API  
+│   │   ├── resource.py    # 资源管理API
+│   │   └── task.py        # 任务管理API
+│   ├── migrations/        # 数据库迁移文件
+│   ├── models.py          # 数据模型定义
+│   ├── urls.py            # 应用路由配置
+│   └── admin.py           # 管理后台配置
+├── commo/                 # 公共工具模块
+│   ├── validate_request.py 
+│   └── parse_json_request.py
+├── 研友集/                # Django项目配置
+│   ├── settings.py        # 项目设置
+│   ├── urls.py            # 主路由配置
+│   ├── wsgi.py            # WSGI入口
+│   └── asgi.py            # ASGI入口
+├── datafactor/            # 数据处理模块
+├── resources/             # 上传文件存储目录
+├── templates/             # HTML模板
+├── db.sqlite3             # 数据库文件
+├── manage.py              # 项目管理脚本
+└── requirements.txt       # 依赖列表
+
 
 ## 配置说明
+
 在settings.py中，你可以配置以下关键参数：
 数据库配置：
+```bash
 DATABASES = {
     'default': {
         # 使用SQLite（默认）
@@ -87,7 +95,8 @@ DATABASES = {
     }
 }
 
-贡献指南
+## 贡献指南
+```bash
 Fork 本仓库
 创建特性分支 (git checkout -b feature/新功能)
 提交修改 (git commit -am '添加新功能')
